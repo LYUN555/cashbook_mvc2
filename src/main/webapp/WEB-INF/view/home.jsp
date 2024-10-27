@@ -64,8 +64,8 @@
                     </c:otherwise>
                 </c:choose>
                 <!-- 0 이상일때 댓글 수 표시 -->
-                <c:if test="${commentCounts[n.noticeNo] > 0}">
-                    <span>(${commentCounts[n.noticeNo]})</span>
+                <c:if test="${commentCountList[n.noticeNo] > 0}">
+                    <span>(${commentCountList[n.noticeNo]})</span>
                 </c:if>
             </td>
         </tr>
@@ -87,7 +87,7 @@
 	<div>
 		<!-- 관리자로 로그인 되어 있다면 -->
 		 <c:if test="${not empty adminId}">
-        	<a href="${pageContext.request.contextPath}/notice/insertNotice.jsp">공지입력</a>
+        	<a href="${pageContext.request.contextPath}/insertNotice">공지입력</a>
    		 </c:if>			
 	</div>
 </body>

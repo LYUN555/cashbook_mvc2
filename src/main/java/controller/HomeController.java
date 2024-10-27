@@ -13,6 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import vo.Notice;
 import vo.Page;
 
@@ -20,11 +21,9 @@ import vo.Page;
 public class HomeController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		// 로그인 정보 전달
-		String email = (String) request.getSession().getAttribute("email");
-		String adminId = (String) request.getSession().getAttribute("adminId");
-		
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("email");
+		String adminId = (String) session.getAttribute("adminId");
 		
 		// 페이징
 		int currentPage = 1;
@@ -65,7 +64,7 @@ public class HomeController extends HttpServlet {
 		// home.jsp 로 전달할 데이터
 		request.setAttribute("noticeList", noticeList);
 		request.setAttribute("currentPage", currentPage);
-		request.setAttribute("commentCount", commentCount);
+		request.setAttribute("commentCountList", commentCountList);
 		request.setAttribute("lastPage", lastPage);
 		request.setAttribute("email", email);
 		request.setAttribute("adminId", adminId);

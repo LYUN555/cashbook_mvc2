@@ -28,15 +28,14 @@ public class CommentDAO {
 		return row;
 	}
 	// deleteNotice.jsp 댓글 전체 삭제
-	public int deleteCommentsByNotice(Comment c) throws ClassNotFoundException, SQLException {
+	public int deleteCommentsByNotice(Connection conn, Comment c) throws ClassNotFoundException, SQLException {
 		int row = 0;
-		Connection conn = DBUtil.getConnection();
 		PreparedStatement stmt = conn.prepareStatement("delete from comment where notice_no = ?");
 		stmt.setInt(1, c.getNoticeNo());
 		System.out.println("CommentDAO.댓글 전부삭제 :"+stmt);
 		row = stmt.executeUpdate();
+		
 		stmt.close();
-		conn.close();
 		return row;
 	}
 	
@@ -50,15 +49,13 @@ public class CommentDAO {
 		System.out.println("CommentDAO.댓글삭제 :"+stmt);
 		row = stmt.executeUpdate();
 		stmt.close();
-		conn.close();
 		return row;
 	}
 	
 	
 	//  noticeOne.jsp 댓글 수
-	public int totalCountComment(int noticeNo) throws ClassNotFoundException, SQLException {
+	public int totalCountComment(Connection conn, int noticeNo) throws ClassNotFoundException, SQLException {
 		int total = 0;
-		Connection conn = DBUtil.getConnection();
 		PreparedStatement stmt = conn.prepareStatement("select count(*) from comment where notice_no = ?");
 		stmt.setInt(1, noticeNo);
 		System.out.println("CommentDAO.카운트 수 :"+stmt);
@@ -68,7 +65,6 @@ public class CommentDAO {
 		}
 		rs.close();
 		stmt.close();
-		conn.close();
 		return total;
 	}
 	

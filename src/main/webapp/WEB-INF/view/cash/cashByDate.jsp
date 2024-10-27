@@ -35,22 +35,19 @@
 			<th>삭제</th>
 		</tr>
 		<c:forEach var ="c" items="${list}">
-		
-		<tr>
-			<td>${c.createdate}</td>
-			<td>${c.kind}</td>
-			<td>${c.money}</td>
-			<td>
-				<a href="${pageContext.request.contextPath}/memoOne?cashNo=${c.cashNo}">${c.memo}</a>
-			</td>
-			<td>${c.updatedate}</td>
-			<td>
-				<a href="${pageContext.request.contextPath}/updateCash?cashNo=${c.cashNo}">수정</a>
-			</td>
-			<td>
-				<a href="${pageContext.request.contextPath}/deleteCash?cashNo=${c.cashNo}&cashDate=${c.cashDate}">삭제</a>
-			</td>
-		</tr>		
+			<tr>
+				<td>${c.createdate}</td>
+				<td>${c.kind}</td>
+				<td>${c.money}</td>
+				<td>${c.memo}</td>
+				<td>${c.updatedate}</td>
+				<td>
+					<a href="${pageContext.request.contextPath}/updateCash?cashNo=${c.cashNo}">수정</a>
+				</td>
+				<td>
+					<a href="${pageContext.request.contextPath}/deleteCash?cashNo=${c.cashNo}&cashDate=${c.cashDate}">삭제</a>
+				</td>
+			</tr>		
 		</c:forEach>
 					
 		

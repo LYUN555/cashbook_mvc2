@@ -27,7 +27,12 @@ public class MemberKickController extends HttpServlet {
 			response.sendRedirect(request.getContextPath()+"/adminLogin");
 			return;
 		}
+		// 강퇴할 이메일
 		String email= request.getParameter("email");
+		if(email==null || email.equals("")) {
+			response.sendRedirect(request.getContextPath()+"/adminLogin");
+			return;
+		}
 		request.setAttribute("email", email);
 		request.getRequestDispatcher("/WEB-INF/view/admin/memberKick.jsp").forward(request, response);
 	}

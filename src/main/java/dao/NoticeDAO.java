@@ -13,15 +13,13 @@ import vo.Page;
 
 public class NoticeDAO {
 	// /notice/deleteNotice.jsp
-	public int deleteNotice(Notice n) throws ClassNotFoundException, SQLException {
+	public int deleteNotice(Connection conn, Notice n) throws ClassNotFoundException, SQLException {
 		int row = 0;
-		Connection conn = DBUtil.getConnection();
 		PreparedStatement stmt = conn.prepareStatement("delete from notice where notice_no = ?");
 		stmt.setInt(1, n.getNoticeNo());
 		System.out.println("NoticeDAO.공지 삭제 :"+stmt);
 		row = stmt.executeUpdate();
 		stmt.close();
-		conn.close();
 		return row;
 	}
 	// /notice/updateNoticeAction.jsp
