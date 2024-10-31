@@ -27,9 +27,10 @@ public class LoginController extends HttpServlet {
 		// 세션 검사
 		HttpSession session = request.getSession();
 		if(session.getAttribute("email") == null) { 
-			response.sendRedirect(request.getContextPath()+"/home");
+			request.getRequestDispatcher("/WEB-INF/view/member/login.jsp").forward(request, response);
 			return;
 		}
+		response.sendRedirect(request.getContextPath() + "/home");
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,7 +42,7 @@ public class LoginController extends HttpServlet {
 		}
 		
 		String email = request.getParameter("email");
-		String pw = request.getParameter("pw");
+		String pw = request.getParameter("memberPw");
 		
 		if(email ==null || email.equals("") || email ==null || email.equals("") ) {
 			response.sendRedirect(request.getContextPath()+"/home?msg=");
@@ -63,7 +64,7 @@ public class LoginController extends HttpServlet {
 		
 		// 로그인 실패
 		if(email == null){
-			response.sendRedirect(request.getContextPath()+"/home?");
+			response.sendRedirect(request.getContextPath()+"/login");
 			return;
 		} else {
 			// 로그인 성공

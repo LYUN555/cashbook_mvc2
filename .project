@@ -3,9 +3,7 @@
 	<name>cashbook_mvc2</name>
 	<comment></comment>
 	<projects>
-		<project>jakarta.servlet.jsp.jstl-3.0.1</project>
 		<project>mysql-connector-j-9.0.0</project>
-		<project>jakarta.servlet.jsp.jstl-api-3.0.1</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

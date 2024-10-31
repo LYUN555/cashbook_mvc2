@@ -43,7 +43,7 @@ public class UpdateMemberPwController extends HttpServlet {
 		
 		System.out.println(email+prePw+newPw);
 		String msg = "";
-		if(prePw == null || prePw.length()<4 || newPw == null || newPw.length()<4) {
+		if(prePw == null || prePw.length()<4 || newPw == null || newPw.length()<4 || prePw.equals(newPw)) {
 			msg = "입력을 확인하세요";
 			request.setAttribute("email", email);
 			request.setAttribute("msg", msg);

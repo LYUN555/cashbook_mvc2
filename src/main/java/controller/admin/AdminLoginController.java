@@ -60,7 +60,7 @@ public class AdminLoginController extends HttpServlet {
 				return;
 			} else {
 				session.setAttribute("adminId", adminId);
-				response.sendRedirect(request.getContextPath()+"/memberList");
+				response.sendRedirect(request.getContextPath()+"/home");
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
