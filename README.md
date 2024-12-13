@@ -5,7 +5,7 @@
 - JSP Model2 MVC 기반을 토대로 로직을 짜면서 outId 추가 후 회원 탈퇴시 같은 이메일로 재가입 불가능 추가
 
 ## 이전 버전과의 차이점
-이 프로젝트는 cashbook_mvc1(Model1)<https://github.com/LYUN555/cashbook_mvc1.git> 구조를 기반으로 처음 개발된 애플리케이션을 MVC2(Model2) 구조로 마이그레이션한 결과물입니다.
+이 프로젝트는 cashbook_mvc1(Model1)<https://github.com/LYUN555/cashbook_mvc1.git> 구조를 기반으로 개인 공부하여 MVC2(Model2) 구조로 마이그레이션한 결과물입니다.
 
 #### 주요 변화:
 - **비즈니스 로직 분리**: 기존에는 JSP에서 데이터 처리와 UI를 모두 관리했지만, 이번 프로젝트에서는 서블릿을 도입하여 비즈니스 로직을 처리하도록 구조를 개선했습니다.
